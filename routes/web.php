@@ -1,0 +1,30 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\controllers\AuthController;
+use App\Http\controllers\DashboardController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\HomeController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/berita', [HomeController::class, 'berita'])->name('pages.berita');
+Route::get('/berita/{id}', [HomeController::class, 'detailBerita'])->name('pages.detail-berita');
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
+});
+
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->withoutMiddleware('admin.'); 
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('berita', BeritaController::class);
+
+    Route::get('/akun', [DashboardController::class, 'akun'])->name('akun');
+    Route::put('/akun/email', [DashboardController::class, 'updateEmail'])->name('akun.update-email');
+    Route::put('/akun/password', [DashboardController::class, 'updatePassword'])->name('akun.update-password');
+});

@@ -1,0 +1,536 @@
+/* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Navigasi navbar yang smooth */
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #f7f9fc;
+    color: #1a1a1a;
+}
+
+/* --- Header / Navbar --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1rem 8%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 36px;
+    height: 36px;
+}
+
+.brand-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #3572EF;
+}
+
+/* Nav Bar Di Tengah Halaman */
+.nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: #4a5568;
+    font-weight: 500;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #3572EF;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #3572EF;
+}
+
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a.active {
+    color: #3572EF;
+    font-weight: 600;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5rem 10%;
+    min-height: 85vh;
+}
+
+.hero-text {
+    max-width: 500px;
+}
+
+.hero-text h1 {
+    font-size: 6rem;
+    color: #3572EF;
+    line-height: 1;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+/* Mengubah warna ke #555555 dan memperkecil ukurannya */
+.hero-text .title-sub {
+    font-size: 3rem;
+    color: #555555;
+    font-weight: 600;
+    margin-top: 0;
+    margin-left: -15rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text p {
+    color: #555555;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Hero Card Hover Animation (Kemiringan + Scale) */
+/* Container untuk menampung card bertumpuk */
+.hero-card-container {
+    position: relative;
+    width: 340px;
+    height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-card {
+    position: absolute;
+    width: 260px;
+    height: 360px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 4px solid #ffffff; 
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.hero-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Card 1 (Belakang - Miring ke Kiri / Berlawanan) */
+.hero-card.card-back {
+    transform: rotate(-10deg) translate(-15px, -5px);
+    z-index: 1;
+}
+
+/* Card 2 (Depan - Miring ke Kanan) */
+.hero-card.card-front {
+    transform: rotate(8deg) translate(10px, 10px);
+    z-index: 2;
+}
+
+/* Efek Hover saat Kursor Diatas Card */
+.hero-card-container:hover .hero-card.card-back {
+    transform: rotate(-15deg) translate(-30px, -10px) scale(1.02);
+}
+
+.hero-card-container:hover .hero-card.card-front {
+    transform: rotate(2deg) translate(15px, 0px) scale(1.05);
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.22);
+}
+
+/* --- Section Layout General --- */
+section {
+    padding: 4rem 10%;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    color: #0f172a;
+}
+
+/* --- Section Tentang --- */
+.about-section {
+    scroll-margin-top: 24px;
+}
+
+.about-content {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 3rem;
+    
+}
+
+.about-text {
+    max-width: 716px;
+    text-align: left;
+}
+
+.about-text p {
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.about-image img {
+    width: 300%;
+    max-width: 450px;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: #3572EF;
+    color: #ffffff;
+    padding: 2.5rem 1rem;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.stat-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.stat-card h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.2rem;
+}
+
+/* --- Section Jurusan & Siswa --- */
+.jurusan-section {
+    scroll-margin-top: 24px;
+}
+
+.jurusan-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.jurusan-card {
+    position: relative;
+    height: 360px;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.jurusan-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.overlay-title {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5); /* Background overlay sedikit transparan */
+    color: rgba(255,255,255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    opacity: 0; /* Tersembunyi secara default */
+    transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+/* Jurusan Card Hover */
+.jurusan-card:hover img {
+    transform: scale(1.1);
+}
+
+.jurusan-card:hover .overlay-title {
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+}
+
+/* --- Section Berita (Auto-slider) --- */
+.berita-section {
+    scroll-margin-top: 24px;
+}
+
+.slider-wrapper {
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 2.5rem;
+}
+
+.slider-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: autoScroll 18s linear infinite;
+}
+
+.slider-track:hover {
+    animation-play-state: paused;
+}
+
+.news-card {
+    width: 280px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.news-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 1.2rem;
+}
+
+.news-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.news-content p {
+    font-size: 0.85rem;
+    color: #555555;
+    margin-bottom: 1rem;
+}
+
+.news-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+}
+
+.badge {
+    background: #e0e7ff;
+    color: #3730a3;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.date {
+    color: #777777;
+}
+
+@keyframes autoScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-280px * 3 - 4.5rem)); }
+}
+
+.btn-container {
+    text-align: center;
+}
+
+.btn-primary {
+    background: #3572EF;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 2.2rem;
+    border-radius: 30px;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+/* --- Section FAQ --- */
+.faq-section {
+    scroll-margin-top: 24px;
+}
+
+.faq-accordion {
+    max-width: 750px;
+    margin: 0 auto 1rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+details {
+    background: #ffffff;
+    padding: 1.2rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    cursor: pointer;
+}
+
+summary {
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] summary .icon {
+    transform: rotate(45deg);
+}
+
+details p {
+    margin-top: 1rem;
+    color: #555555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.contact-banner {
+    max-width: 750px;
+    margin: 0 auto;
+    background: #3572EF;
+    color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-white {
+    background: white;
+    color: #3572EF;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* --- Footer --- */
+footer {
+    background: #ffffff;
+    padding: 4rem 10% 2rem 10%;
+    border-top: 1px solid #e2e8f0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.footer-brand {
+    max-width: 300px;
+}
+
+.footer-brand p {
+    color: #555555;
+    font-size: 0.85rem;
+    margin: 1rem 0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: #3572EF;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.footer-right-group {
+    display: flex;
+    gap: 4rem; /* Mengatur jarak agar rapat antara list navigasi dan kontak */
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #555555;
+    font-size: 0.9rem;
+}
+
+.footer-contact p {
+    color: #555555;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+.footer-contact i {
+    color: #3572EF;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.legal-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.legal-links a {
+    color: #94a3b8;
+    text-decoration: none;
+}
