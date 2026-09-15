@@ -293,34 +293,27 @@ h2 {
     opacity: 1;
 }
 
-/* --- Section Berita (Auto-slider) --- */
+/* --- Section Berita (Grid 1 Baris / Max 3 Card) --- */
 .berita-section {
     scroll-margin-top: 24px;
 }
 
-.slider-wrapper {
-    overflow: hidden;
-    width: 100%;
+.news-grid {
+    display: grid;
+    /* Membuat maksimal 3 kolom sejajar secara presisi */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1.5rem;
     margin-bottom: 2.5rem;
 }
 
-.slider-track {
-    display: flex;
-    gap: 1.5rem;
-    width: max-content;
-    animation: autoScroll 18s linear infinite;
-}
-
-.slider-track:hover {
-    animation-play-state: paused;
-}
-
 .news-card {
-    width: 280px;
+    width: 100%; /* Lebar mengikuti grid kolom */
     background: #fff;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
 }
 
 .news-card img {
@@ -331,6 +324,9 @@ h2 {
 
 .news-content {
     padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .news-content h4 {
@@ -342,12 +338,27 @@ h2 {
     font-size: 0.85rem;
     color: #555555;
     margin-bottom: 1rem;
+    flex: 1; /* Supaya footer card tetap sejajar di bawah */
 }
 
 .news-footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 0.75rem;
+}
+
+/* Responsif untuk layar HP/Tablet agar tidak sempit */
+@media (max-width: 992px) {
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 card di layar tablet */
+    }
+}
+
+@media (max-width: 600px) {
+    .news-grid {
+        grid-template-columns: 1fr; /* 1 card di layar HP */
+    }
 }
 
 .badge {

@@ -1,0 +1,17 @@
+/* 1. Mengubah background biru & teks biru jadi putih & hitam pas aktif */
+#faqAccordion .accordion-button:not(.collapsed) {
+    background-color: #ffffff !important;
+    color: #212529 !important;
+    box-shadow: none !important;
+}
+
+/* 2. Menghilangkan ring/outline biru saat tombol diklik */
+#faqAccordion .accordion-button:focus {
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+/* 3. (Opsional) Mengubah warna panah dropdown saat aktif agar tetap gelap */
+#faqAccordion .accordion-button:not(.collapsed)::after {
+    filter: none !important;
+}

@@ -10,8 +10,8 @@ class BeritaController extends Controller
 {
     public function index()
     {
-        $Beritas = Berita::latest()->get();
-        return view('admin.berita.index', compact('Beritas'));
+        $beritas = Berita::latest()->get();
+        return view('admin.berita.index', compact('beritas'));
     }
 
     public function create()
@@ -23,61 +23,66 @@ class BeritaController extends Controller
     {
         $request->validate([
             'judul'    => 'required|string|max:255',
-            'kategori' => 'required|string',
-            'deskripsi'      => 'required',
             'gambar'   => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'deskripsi'=> 'required',
+            'kategori' => 'required|string',
+            'kategori_lainnya' => 'nullable|required_if:kategori,Lainnya|string|max:50',
         ]);
 
+        $kategoriFinal = $request->kategori === 'Lainnya' ? $request->kategori_lainnya : $request->kategori;
         $gambarPath = $request->file('gambar')->store('berita', 'public');
 
         Berita::create([
             'judul'    => $request->judul,
-            'kategori' => $request->kategori,
-            'isi'      => $request->isi,
             'gambar'   => $gambarPath,
+            'deskripsi'=> $request->deskripsi,
+            'kategori' => $kategoriFinal,
         ]);
 
-        return redirect()->route('berita.index')->with('success', 'Berita berhasil ditambahkan');
+        return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil ditambahkan');
     }
-    public function edit(Berita $Berita)
+    public function edit(Berita $berita)
     {
         return view('admin.berita.edit', compact('berita')); 
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, Berita $berita)
     {
         $request->validate([
             'judul'    => 'required|string|max:255',
-            'kategori' => 'required|string',
-            'isi'      => 'required',
             'gambar'   => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'deskripsi'=> 'required|string',
+            'kategori' => 'required|string',
+            'kategori_lainnya' => 'nullable|required_if:kategori,Lainnya|string|max:50',
         ]);
 
-        $data = [
-            'judul'    => $request->judul,
-            'kategori' => $request->kategori,
-            'isi'      => $request->isi,
-        ];
+        $kategoriFinal = $request->kategori === 'Lainnya' ? $request->kategori_lainnya : $request->kategori;
+        $gambarPath = $berita->gambar;
 
         if ($request->hasFile('gambar')) {
             if ($berita->gambar && Storage::disk('public')->exists($berita->gambar)) {
                 Storage::disk('public')->delete($berita->gambar);
             }
-            $data['gambar'] = $request->file('gambar')->store('berita', 'public');
+            $gambarPath = $request->file('gambar')->store('berita', 'public');
         }
 
-        $berita->update($data);
+        $berita->update ([
+            'judul'    => $request->judul,
+            'gambar'   => $gambarPath,
+            'deskripsi'=> $request->deskripsi,
+            'kategori' => $kategoriFinal,
+        ]);
 
-        return redirect()->route('berita.index')->with('success', 'Berita berhasil diperbarui');
+        return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil diperbarui');
     }
 
-    public function destroy(string $id)
+    public function destroy(Berita $berita)
     {
         if ($berita->gambar && Storage::disk('public')->exists($berita->gambar)) {
             Storage::disk('public')->delete($berita->gambar);
         }
         $berita->delete();
 
-        return redirect()->route('berita.index')->with('success', 'Berita berhasil dihapus');
+        return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil dihapus');
     }
 }

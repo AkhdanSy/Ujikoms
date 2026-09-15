@@ -2,143 +2,107 @@
 
 @section('title', 'Pengaturan Akun - Admin SMKN 4 Bogor')
 
-@push('styles')
-<style>
-    .account-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-        margin-top: 1rem;
-    }
-
-    .account-card {
-        background: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 12px;
-        padding: 1.5rem;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-    }
-
-    .account-card h2 {
-        font-size: 1.35rem;
-        font-weight: 700;
-        color: #3572ef;
-        margin-bottom: 0.2rem;
-    }
-
-    .account-card p.subtitle {
-        color: #64748b;
-        font-size: 0.9rem;
-        margin-bottom: 1.25rem;
-    }
-
-    .form-group-account {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .input-account {
-        width: 100%;
-        padding: 0.75rem 1rem;
-        background: #ffffff;
-        border: 1px solid #cbd5e1;
-        border-radius: 10px;
-        font-size: 0.95rem;
-        outline: none;
-        transition: border-color 0.2s;
-    }
-
-    .input-account:focus {
-        border-color: #3572ef;
-    }
-
-    .btn-account-submit {
-        align-self: flex-end;
-        background: #3572ef;
-        color: #ffffff;
-        border: none;
-        padding: 0.6rem 1.8rem;
-        border-radius: 8px;
-        font-weight: 600;
-        font-size: 0.9rem;
-        cursor: pointer;
-        transition: background 0.2s ease;
-    }
-
-    .btn-account-submit:hover {
-        background: #2558c9;
-    }
-
-    .alert-success {
-        background: #dcfce7;
-        color: #166534;
-        padding: 0.75rem 1rem;
-        border-radius: 8px;
-        font-size: 0.875rem;
-        margin-bottom: 1rem;
-    }
-
-    @media (max-width: 900px) {
-        .account-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
-@endpush
-
 @section('content')
-    <h1 class="page-title">Dashboard</h1>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3 fw-bold text-secondary m-0">Pengaturan Akun</h1>
+    </div>
 
+    <!-- Alert Success -->
     @if(session('success'))
-        <div class="alert-success">
-            {{ session('success') }}
+        <div class="alert alert-success alert-dismissible fade show border-0 shadow-sm rounded-3 mb-4" role="alert">
+            <i class="fa-solid fa-circle-check me-2"></i>{{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
 
-    <div class="account-grid">
-        <!-- Card 1: Ganti Alamat Email -->
-        <div class="account-card">
-            <h2>Alamat email</h2>
-            <p class="subtitle">Ganti alamat email</p>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        
+        <!-- Form Email -->
+        <div class="col">
+            <div class="card border-0 shadow-sm rounded-4 h-100">
+                <div class="card-body p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold text-primary mb-1">Alamat email</h5>
+                        <p class="text-secondary small mb-4">Ganti alamat email utama akun admin Anda.</p>
 
-            <form action="{{ route('admin.akun.update-email') }}" method="POST" class="form-group-account">
-                @csrf
-                @method('PUT')
-                <input 
-                    type="email" 
-                    name="email" 
-                    class="input-account" 
-                    value="{{ old('email', auth()->user()->email ?? '') }}" 
-                    required
-                >
-                @error('email')
-                    <span style="color: #ef4444; font-size: 0.8rem;">{{ $message }}</span>
-                @enderror
-                <button type="submit" class="btn-account-submit">Ganti</button>
-            </form>
+                        <form action="{{ route('admin.akun.update-email') }}" method="POST" id="formUpdateEmail">
+                            @csrf
+                            @method('PUT')
+                            <div class="mb-3">
+                                <label for="email" class="form-label small fw-medium text-secondary">Email Baru</label>
+                                <input 
+                                    type="email" 
+                                    id="email"
+                                    name="email" 
+                                    class="form-control form-control-lg fs-6 rounded-3 @error('email') is-invalid @enderror" 
+                                    value="{{ old('email', auth()->user()->email ?? '') }}" 
+                                    required
+                                >
+                                @error('email')
+                                    <div class="invalid-feedback small">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="pt-1 text-end">
+                        <button type="submit" form="formUpdateEmail" class="btn btn-primary rounded-pill px-4 fw-medium">
+                            Ganti Email
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Card 2: Ganti Kata Sandi -->
-        <div class="account-card">
-            <h2>Kata sandi</h2>
-            <p class="subtitle">Ganti kata sandi</p>
+        <!-- Form Password -->
+        <div class="col">
+            <div class="card border-0 shadow-sm rounded-4 h-100">
+                <div class="card-body p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold text-primary mb-1">Kata sandi</h5>
+                        <p class="text-secondary small mb-4">Ganti kata sandi akun admin Anda secara berkala.</p>
 
-            <form action="{{ route('admin.akun.update-password') }}" method="POST" class="form-group-account">
-                @csrf
-                @method('PUT')
-                <input 
-                    type="password" 
-                    name="password" 
-                    class="input-account" 
-                    placeholder="Masukkan kata sandi baru" 
-                    required
-                >
-                @error('password')
-                    <span style="color: #ef4444; font-size: 0.8rem;">{{ $message }}</span>
-                @enderror
-                <button type="submit" class="btn-account-submit">Ganti</button>
-            </form>
+                        <form action="{{ route('admin.akun.update-password') }}" method="POST" id="formUpdatePassword">
+                            @csrf
+                            @method('PUT')
+                            <div class="mb-3">
+                                <label for="adminPassword" class="form-label small fw-medium text-secondary">Kata Sandi Baru</label>
+                                <div class="input-group">
+                                    <input 
+                                        type="password" 
+                                        name="password" 
+                                        id="adminPassword" 
+                                        class="form-control form-control-lg fs-6 rounded-start-3 @error('password') is-invalid @enderror" 
+                                        placeholder="Masukkan kata sandi baru" 
+                                        required
+                                    >
+                                    <button type="button" id="adminTogglePasswordBtn" class="btn btn-outline-secondary rounded-end-3 px-3 d-flex align-items-center">
+                                        <i class="fa-regular fa-eye-slash" id="adminEyeIcon"></i>
+                                    </button>
+                                    @error('password')
+                                        <div class="invalid-feedback small d-block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="pt-1 text-end">
+                        <button type="submit" form="formUpdatePassword" class="btn btn-primary rounded-pill px-4 fw-medium">
+                            Ganti Kata Sandi
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('js/akun.js') }}"></script>
+@endpush

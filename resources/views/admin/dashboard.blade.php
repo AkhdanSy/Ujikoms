@@ -3,45 +3,78 @@
 @section('title', 'Dashboard - Admin SMKN 4 Bogor')
 
 @section('content')
-    <h1 class="page-title">Dashboard</h1>
+    <div class="d-flex justify-content-between align-items-center mb-5 ">
+        <h1 class="h3 fw-bold text-secondary m-0">Dashboard</h1>
+    </div>
 
     <!-- Welcome Card -->
-    <div class="welcome-card">
-        <h2>Halo, {{ auth()->user()->name ?? 'Admin' }}! 👋</h2>
-        <p>Selamat datang kembali. Kelola portal berita dan informasi sekolah dengan mudah, cepat, dan efisien melalui dashboard ini.</p>
+    <div class="card border-0 bg-primary text-white rounded-4 shadow-sm mb-4">
+        <div class="card-body p-4 p-md-5">
+            <h2 class="fw-bold mb-2">Halo, {{ auth()->user()->name ?? 'Admin' }}! 👋</h2>
+            <p class="mb-0 text-white-50 leading-relaxed fs-6">
+                Selamat datang kembali. Kelola portal berita dan informasi sekolah dengan mudah, cepat, dan efisien melalui dashboard ini.
+            </p>
+        </div>
     </div>
 
     <!-- Blue Stat Cards Grid -->
-    <div class="stats-grid-top">
-        <div class="stat-card blue-card">
-            <h3>Jumlah guru</h3>
-            <span class="stat-number">50</span>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
+        <div class="col">
+            <div class="card border-0 bg-primary bg-gradient text-white rounded-4 shadow-sm h-100 p-3">
+                <div class="card-body">
+                    <h6 class="text-white-50 fw-semibold text-uppercase mb-2">Jumlah guru</h6>
+                    <h2 class="display-5 fw-bold mb-0">50</h2>
+                </div>
+            </div>
         </div>
-        <div class="stat-card blue-card">
-            <h3>Jumlah siswa</h3>
-            <span class="stat-number">1160</span>
+        <div class="col">
+            <div class="card border-0 bg-primary bg-gradient text-white rounded-4 shadow-sm h-100 p-3">
+                <div class="card-body">
+                    <h6 class="text-white-50 fw-semibold text-uppercase mb-2">Jumlah siswa</h6>
+                    <h2 class="display-5 fw-bold mb-0">1160</h2>
+                </div>
+            </div>
         </div>
-        <div class="stat-card blue-card">
-            <h3>Jumlah kelas</h3>
-            <span class="stat-number">30</span>
+        <div class="col">
+            <div class="card border-0 bg-primary bg-gradient text-white rounded-4 shadow-sm h-100 p-3">
+                <div class="card-body">
+                    <h6 class="text-white-50 fw-semibold text-uppercase mb-2">Jumlah kelas</h6>
+                    <h2 class="display-5 fw-bold mb-0">30</h2>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- White Stat Cards Grid -->
-    <div class="stats-grid-bottom">
-        <div class="stat-card white-card">
-            <h3>Jumlah postingan</h3>
-            <span class="stat-number">{{ $totalBerita ?? 0 }}</span>
+    <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+        <div class="col">
+            <div class="card border-primary bg-white rounded-4 shadow-sm h-100 p-3">
+                <div class="card-body">
+                    <h6 class="text-secondary fw-semibold text-uppercase mb-2">Jumlah postingan</h6>
+                    <h2 class="display-5 fw-bold text-dark mb-0">{{ $totalBerita ?? 0 }}</h2>
+                </div>
+            </div>
         </div>
-        <div class="stat-card white-card">
-            <h3>Jumlah kategori postingan</h3>
-            <span class="stat-number">{{ $totalKategori ?? 0 }}</span>
+        <div class="col">
+            <div class="card border-primary bg-white rounded-4 shadow-sm h-100 p-3">
+                <div class="card-body">
+                    <h6 class="text-secondary fw-semibold text-uppercase mb-2">Jumlah kategori postingan</h6>
+                    <h2 class="display-5 fw-bold text-dark mb-0">5</h2>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- CTA Banner -->
-    <div class="cta-banner">
-        <h2>Kelola berita sekolah mu sekarang!</h2>
-        <a href="{{ route('admin.berita.index') }}" class="btn-kelola">Kelola</a>
+    <div class="card border-0 bg-white rounded-4 shadow-sm p-4 p-md-5">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+            <div>
+                <h3 class="fw-bold text-primary mb-1">Kelola berita sekolah mu sekarang!</h3>
+                <p class="text-muted mb-0">Buat, perbarui, atau atur artikel berita yang tampil di halaman utama.</p>
+            </div>
+            <a href="{{ route('admin.berita.index') }}" class="btn btn-primary rounded-pill px-4 py-2 fw-semibold text-nowrap">
+                Kelola Berita
+            </a>
+        </div>
     </div>
 @endsection

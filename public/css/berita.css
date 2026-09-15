@@ -1,0 +1,290 @@
+/* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #f3f5f9;
+    color: #1a1a1a;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: radial-gradient(circle at 10% 20%, rgba(224, 231, 255, 0.6) 0%, rgba(243, 245, 249, 1) 50%),
+                radial-gradient(circle at 90% 60%, rgba(220, 238, 255, 0.5) 0%, rgba(243, 245, 249, 1) 50%);
+    min-height: 100vh;
+}
+
+/* --- Top Navigation Header --- */
+.top-navigation {
+    display: flex;
+    align-items: center;
+    padding: 2.5rem 8% 1rem 8%;
+    position: relative;
+    max-width: 1260px;
+    margin: 0 auto;
+}
+
+.btn-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3572EF;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.btn-back:hover {
+    transform: translateX(-3px);
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.breadcrumb-link {
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+    color: #3572EF;
+}
+
+.breadcrumb-separator {
+    font-size: 0.7rem;
+    color: #94a3b8;
+}
+
+.breadcrumb-current {
+    color: #3572EF;
+    font-weight: 600;
+}
+
+/* --- Main Layout --- */
+.main-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 2rem 5rem 2rem;
+}
+
+/* --- Category Section --- */
+.category-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.category-pill {
+    background-color: #ffffff;
+    color: #0f172a;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.5rem 1.8rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    margin-bottom: 2rem;
+}
+
+/* --- Grid & Cards --- */
+.berita-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+    width: 100%;
+}
+
+.news-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.news-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 1.2rem;
+}
+
+.news-content h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.4rem;
+}
+
+.news-content p {
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.4;
+    margin-bottom: 1.2rem;
+}
+
+.news-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+}
+
+.badge {
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.7rem;
+}
+
+.badge-prestasi {
+    background: #fce7f3;
+    color: #be185d;
+}
+
+.badge-kokurikuler {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.badge-kegiatan {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.date {
+    color: #94a3b8;
+    font-size: 0.7rem;
+}
+
+/* --- Footer --- */
+footer {
+    background: #ffffff;
+    padding: 4rem 10% 2rem 10%;
+    border-top: 1px solid #e2e8f0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.footer-brand {
+    max-width: 300px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 36px;
+    height: 36px;
+}
+
+.brand-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #3572EF;
+}
+
+.footer-brand p {
+    color: #555555;
+    font-size: 0.85rem;
+    margin: 1rem 0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: #3572EF;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.footer-right-group {
+    display: flex;
+    gap: 4rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #555555;
+    font-size: 0.9rem;
+}
+
+.footer-contact p {
+    color: #555555;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+.footer-contact i {
+    color: #3572EF;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.legal-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.legal-links a {
+    color: #94a3b8;
+    text-decoration: none;
+}
+
+/* Responsive Grid */
+@media (max-width: 900px) {
+    .berita-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .berita-grid {
+        grid-template-columns: 1fr;
+    }
+}
