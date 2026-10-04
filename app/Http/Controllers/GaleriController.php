@@ -60,7 +60,7 @@ class GaleriController extends Controller
     {
         $request->validate([
             'judul' => 'required|string|max:255',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048'
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048'
         ]);
 
         $gambarPath = $galeri->gambar;
