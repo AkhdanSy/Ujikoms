@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masuk ke Admin - SMKN 4 Bogor</title>
-
     <!-- Bootstrap 5 via Vite -->
     @vite(['resources/js/app.js'])
-
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="shortcut icon" href="../assets/Subtract.png" type="image/x-icon">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body class="bg-light min-vh-100 d-flex align-items-center justify-content-center py-4">
     <div class="container">
@@ -17,29 +18,23 @@
             <div class="col-12 col-lg-10">
                 <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
                     <div class="row g-0">
-                        
                         <!-- Kolom Kiri: Gambar Banner -->
                         <div class="col-md-6 d-none d-md-block">
                             <img src="{{ asset('assets/smkn4bogor (1).jpg') }}" 
                                  alt="Gedung Sekolah" 
                                  class="img-fluid h-100 w-100 object-fit-cover">
                         </div>
-
                         <!-- Kolom Kanan: Form Login -->
                         <div class="col-md-6 p-4 p-lg-5 d-flex flex-column justify-content-center bg-white">
-                            
                             <h2 class="fw-bold text-dark mb-4">Masuk ke Admin</h2>
-
                             <!-- Pesan Error Gagal Login -->
                             @if(session('error'))
                                 <div class="alert alert-danger rounded-3 border-0 small mb-3" role="alert">
                                     {{ session('error') }}
                                 </div>
                             @endif
-
                             <form action="{{ route('login') }}" method="POST">
                                 @csrf
-
                                 <!-- Input Email -->
                                 <div class="mb-3">
                                     <label for="email" class="form-label small fw-medium text-secondary">Alamat email</label>
@@ -59,7 +54,6 @@
                                         </div>
                                     @enderror
                                 </div>
-
                                 <!-- Input Password -->
                                 <div class="mb-3">
                                     <label for="password" class="form-label small fw-medium text-secondary">Kata sandi</label>
@@ -82,22 +76,17 @@
                                         @enderror
                                     </div>
                                 </div>
-
                                 <!-- Lupa Akun -->
                                 <div class="mb-4 small">
                                     <span class="text-secondary">Anda lupa akun? </span>
                                     <a href="#" class="text-primary text-decoration-none fw-medium">Hubungi kami</a>
                                 </div>
-
                                 <!-- Tombol Masuk -->
                                 <button type="submit" class="btn btn-primary btn-lg w-100 rounded-3 fs-6 fw-semibold mb-3">
                                     Masuk
                                 </button>
-
                             </form>
-
                         </div>
-
                     </div>
                 </div>
             </div>

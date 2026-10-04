@@ -8,13 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="../assets/Subtract.png" type="image/x-icon">
     @vite(['resources/js/app.js'])
     @stack('styles')
-    <style>
-        *, body, h1, h2, h3, h4, h5, h6, p, span, button, input, select,  {
-            font-family: 'Space Grotesk', sans-serif !important;
-        }
-    </style>
 </head>
 <body>
 

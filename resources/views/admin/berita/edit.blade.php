@@ -22,17 +22,11 @@
 
             <!-- Upload Gambar Card -->
             <div class="mb-4">
-                <label class="form-label fw-semibold text-secondary">Gambar Utama <span class="fw-normal text-muted">(Kosongkan jika tidak ingin diubah)</span></label>
-                <div class="border border-2 border-dashed rounded-4 p-4 text-center bg-light position-relative" id="dropzone">
-                    <img id="image-preview" src="{{ asset('storage/' . $berita->gambar) }}" alt="Preview" class="img-fluid rounded-3 mb-3 d-block mx-auto" style="max-height: 180px; object-fit: cover;">
-                    <div id="upload-placeholder">
-                        <i class="fa-solid fa-cloud-arrow-up display-6 text-primary mb-2"></i>
-                        <p class="mb-0 text-dark fw-medium" id="upload-title-text">Klik untuk mengganti gambar</p>
-                    </div>
-                    <input type="file" name="gambar" id="gambar-input" accept="image/*" class="position-absolute top-0 start-0 w-100 h-100 opacity-0 cursor-pointer" style="cursor: pointer;">
-                </div>
+                <label for="gambar" class="form-label fw-semibold text-secondary">Gambar Utama</label>
+                <input class="form-control @error('gambar') is-invalid @enderror" type="file" id="gambar" name="gambar">
+                
                 @error('gambar')
-                    <div class="text-danger small mt-1">{{ $message }}</div>
+                    <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 

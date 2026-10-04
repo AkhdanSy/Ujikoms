@@ -3,8 +3,8 @@
     <div>
         <!-- Brand Logo -->
         <div class="d-flex align-items-center gap-2 px-2 py-3 mb-4 border-bottom">
-            <img src="{{ asset('assets/logo.svg') }}" alt="Logo SMKN 4 Bogor" width="32" height="32">
-            <span class="fw-bold text-primary fs-5">SMKN 4 Bogor</span>
+            <img src="{{ asset('assets/Subtract.png') }}" alt="Logo XaoLery" width="32" height="32">
+            <span class="fw-bold text-primary fs-5">XaoLery</span>
         </div>
 
         <!-- Navigation Menu -->

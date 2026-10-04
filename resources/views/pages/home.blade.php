@@ -5,6 +5,8 @@
 @section('content')
     <!-- Hero Section -->
     <section id="beranda" class="py-5 bg-light overflow-hidden">
+        <div class="py-3">
+        <div class="py-5">
         <div class="container py-lg-4">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
@@ -15,14 +17,12 @@
                     </p>
                 </div>
                 
-                <div class="col-lg-6 position-relative">
-                    <div class="row g-3">
-                        <div class="col-14">
-                            <img src="{{ asset('assets/smk.jpg') }}" class="img-fluid rounded-4 shadow-lg object-fit-cover w-100" style="height: 320px;" alt="Siswa SMKN 4 Bogor">
-                        </div>
-                    </div>
+                <div class="col-lg-6">
+                    <img src="{{ asset('assets/smk.jpg') }}" class="img-fluid rounded-4 shadow-lg object-fit-cover w-100" style="height: 320px;" alt="Siswa SMKN 4 Bogor">
                 </div>
             </div>
+        </div>
+        </div>
         </div>
     </section>
 
@@ -36,7 +36,7 @@
                     <p class="text-secondary fs-6 leading-relaxed">
                         SMKN 4 Bogor terus berupaya menciptakan lingkungan pendidikan yang mendukung siswa untuk mengembangkan potensi, keterampilan, dan kreativitas. Sebagai salah satu sekolah kejuruan, SMKN 4 Bogor tidak hanya berfokus pada pembelajaran akademik, tetapi juga membekali siswa dengan keterampilan yang sesuai dengan kebutuhan dunia kerja dan perkembangan teknologi.
                     </p>
-                    <p class="text-secondary fs-6 leading-relaxed">
+                    <p class="text-secondary fs-6 leading-relaxed mb-0">
                         Berbagai kegiatan pembelajaran dan proyek kreatif menjadi bagian dari proses pendidikan di SMKN 4 Bogor. Melalui kegiatan tersebut, siswa didorong untuk lebih aktif, inovatif, dan mampu menerapkan ilmu yang telah dipelajari dalam kehidupan nyata.
                     </p>
                 </div>
@@ -87,43 +87,30 @@
         </div>
     </section>
 
-    <!-- Section Jurusan & Siswa -->
+    <!-- Section Jurusan -->
     <section id="siswa" class="py-5 bg-light">
         <div class="container py-lg-4">
             <h2 class="fw-bold text-center mb-5">Jurusan & Siswa</h2>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
-                <div class="col">
-                    <div class="card border-0 rounded-4 overflow-hidden shadow-sm position-relative text-white">
-                        <img src="{{ asset('assets/pplg.webp') }}" class="card-img" style="height: 260px; object-fit: cover;" alt="PPLG">
-                        <div class="card-img-overlay d-flex align-items-end p-3" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
-                            <h4 class="card-title fw-bold mb-0">PPLG | 200+ Siswa</h4>
+                @php
+                    $jurusans = [
+                        ['nama' => 'PPLG', 'img' => 'pplg.webp'],
+                        ['nama' => 'TJKT', 'img' => 'tjkt.webp'],
+                        ['nama' => 'TO', 'img' => 'to.webp'],
+                        ['nama' => 'TP', 'img' => 'tp.webp'],
+                    ];
+                @endphp
+
+                @foreach($jurusans as $j)
+                    <div class="col">
+                        <div class="card border-0 rounded-4 overflow-hidden shadow-sm position-relative text-white">
+                            <img src="{{ asset('assets/' . $j['img']) }}" class="card-img" style="height: 260px; object-fit: cover;" alt="{{ $j['nama'] }}">
+                            <div class="card-img-overlay d-flex align-items-end p-3" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                                <h4 class="card-title fw-bold mb-0">{{ $j['nama'] }} | 200+ Siswa</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card border-0 rounded-4 overflow-hidden shadow-sm position-relative text-white">
-                        <img src="{{ asset('assets/tjkt.webp') }}" class="card-img" style="height: 260px; object-fit: cover;" alt="TJKT">
-                        <div class="card-img-overlay d-flex align-items-end p-3" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
-                            <h4 class="card-title fw-bold mb-0">TJKT | 200+ Siswa</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border-0 rounded-4 overflow-hidden shadow-sm position-relative text-white">
-                        <img src="{{ asset('assets/to.webp') }}" class="card-img" style="height: 260px; object-fit: cover;" alt="TO">
-                        <div class="card-img-overlay d-flex align-items-end p-3" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
-                            <h4 class="card-title fw-bold mb-0">TO | 200+ Siswa</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border-0 rounded-4 overflow-hidden shadow-sm position-relative text-white">
-                        <img src="{{ asset('assets/tp.webp') }}" class="card-img" style="height: 260px; object-fit: cover;" alt="TP">
-                        <div class="card-img-overlay d-flex align-items-end p-3" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
-                            <h4 class="card-title fw-bold mb-0">TP | 200+ Siswa</h4>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -165,7 +152,8 @@
         </div>
     </section>
 
-    <section id="galeri" class="py-5">
+    <!-- Section Galeri -->
+    <section id="galeri" class="py-5 bg-light">
         <div class="container py-lg-4">
             <h2 class="fw-bold text-center mb-5">Galeri</h2>
             
@@ -173,13 +161,13 @@
                 @forelse($galeris as $item)
                     <div class="col">
                         <div class="card border-0 rounded-4 overflow-hidden shadow-sm position-relative">
-                        <a href="{{ route('pages.detail-galeri', $item->id) }}" class="text-decoration-none text-white h-100 d-flex flex-column">
-                            <img src="{{ asset('storage/' . $item->gambar) }}" class="card-img" style="height: 260px; object-fit: cover;" alt="{{ $item->judul }}">
+                            <a href="{{ route('pages.detail-galeri', $item->id) }}" class="text-decoration-none text-white h-100 d-flex flex-column">
+                                <img src="{{ asset('storage/' . $item->gambar) }}" class="card-img" style="height: 260px; object-fit: cover;" alt="{{ $item->judul }}">
                                 <div class="card-img-overlay d-flex align-items-end p-3" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
-                                    <h4 class="card-title fw-bold mb-0">{{ $item->judul }}</h4>
-                            </div>
-                        </a>
-                    </div>
+                                    <h4 class="card-title fw-bold mb-0 text-white">{{ $item->judul }}</h4>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 @empty
                     <div class="col-12 text-center text-muted py-5">
@@ -197,15 +185,13 @@
     </section>
 
     <!-- Section FAQ -->
-    <section id="faq" class="pt-5 pb-4 bg-light">
+    <section id="faq" class="py-5">
         <div class="container py-lg-4">
             <h2 class="fw-bold text-center mb-5">FAQ</h2>
             
-            <!-- Accordion Bootstrap 5 -->
-            <div class="row justify-content-center mb-3">
-                <div class="col-lg-8">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 pb-2">
                     <div class="accordion shadow-sm rounded-4 overflow-hidden border-0" id="faqAccordion">
-                        
                         <div class="accordion-item border-0 border-bottom">
                             <h2 class="accordion-header">
                                 <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
@@ -227,7 +213,7 @@
                             </h2>
                             <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-secondary">
-                                    Pengunjung umum dapat melihat ringkasan berita di landing page ini atau mengklik tombol "Lihat Semua".
+                                    Pengunjung umum dapat melihat ringkasan berita di landing page ini atau mengklik tombol "Lihat Semua Berita".
                                 </div>
                             </div>
                         </div>
@@ -244,11 +230,9 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-
             <!-- Banner Kontak -->
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -258,7 +242,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 @endsection

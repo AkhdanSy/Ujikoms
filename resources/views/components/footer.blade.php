@@ -6,8 +6,8 @@
             <!-- Brand & Social Icons -->
             <div class="col-lg-4 col-md-6">
                 <a class="navbar-brand d-flex align-items-center gap-2 mb-3" href="{{ route('home') }}#beranda">
-                    <img src="{{ asset('assets/logo.svg') }}" alt="Logo SMKN 4 Bogor" width="36" height="36">
-                    <span class="fw-bold text-primary fs-5">SMKN 4 Bogor</span>
+                    <img src="{{ asset('assets/Subtract.png') }}" alt="Logo XaoLery" width="36" height="36">
+                    <span class="fw-bold text-primary fs-5">XaoLery</span>
                 </a>
                 <p class="text-secondary small mb-3">
                     SMKN 4 Bogor — tempat mimpi dimulai, keterampilan diasah, dan masa depan dibentuk.
@@ -48,8 +48,8 @@
             <div class="col-lg-2 col-md-6 col-6">
                 <h6 class="fw-bold text-dark mb-3">Kontak</h6>
                 <div class="d-flex flex-column gap-2 small text-secondary">
-                    <p class="mb-0"><i class="fa-solid fa-phone text-primary me-2"></i>+62 1234 567 890</p>
-                    <p class="mb-0"><i class="fa-solid fa-envelope text-primary me-2"></i>example@mail.com</p>
+                    <p class="mb-0"><i class="fa-solid fa-phone text-primary me-2"></i>+62 823 1076 8523</p>
+                    <p class="mb-0"><i class="fa-solid fa-envelope text-primary me-2"></i>xiaoqitechy@mail.com</p>
                     <p class="mb-0"><i class="fa-solid fa-location-dot text-primary me-2"></i>Jl. Raya Tajur, Kp. Buntar RT.02/RW.08, Kel. Muara sari, Kec. Bogor Selatan, RT.03/RW.08, Muarasari, Kec. Bogor Sel., Kota Bogor, Jawa Barat 16137</p>
                 </div>
             </div>
@@ -58,7 +58,7 @@
 
         <!-- Footer Bottom -->
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-4 small text-secondary gap-2">
-            <p class="mb-0">© 2026 SMKN 4 Bogor. Seluruh hak cipta dilindungi.</p>
+            <p class="mb-0">© 2026 XaoLery. Seluruh hak cipta dilindungi.</p>
         </div>
     </div>
 </footer>

@@ -6,30 +6,28 @@
     <div class="bg-light py-5 min-vh-100">
         <div class="container">
             
-            <!-- Top Navigation & Breadcrumb -->
+            <!-- Breadcrumb Navigation -->
             <div class="d-flex align-items-center mb-4">
-                <a href="{{ route('home') }}#berita" class="btn btn-sm btn-light text-primary rounded-circle shadow-sm me-3" aria-label="Kembali ke Beranda">
+                <a href="{{ route('home') }}#berita" class="btn btn-sm btn-light text-primary rounded-circle shadow-sm me-3" aria-label="Kembali">
                     <i class="fa-solid fa-arrow-left"></i>
                 </a>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 fw-medium">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}#berita" class="text-decoration-none text-secondary link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Beranda</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}#berita" class="text-decoration-none text-secondary link-primary">Beranda</a></li>
                         <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Berita</li>
                     </ol>
                 </nav>
             </div>
 
-            <!-- Main Content Berita Per Kategori -->
+            <!-- List Berita Per Kategori -->
             @forelse($beritasByKategori as $kategori => $items)
                 <section class="mb-5">
-                    <!-- Category Badge Pill -->
                     <div class="text-center mb-4">
                         <span class="badge bg-white text-primary shadow-sm px-4 py-2 rounded-pill fs-6 fw-semibold border border-primary">
                             {{ $kategori }}
                         </span>
                     </div>
                     
-                    <!-- Grid Berita -->
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                         @foreach($items as $item)
                             <div class="col">

@@ -16,18 +16,11 @@
 
             <!-- Upload Gambar Card -->
             <div class="mb-4">
-                <label class="form-label fw-semibold text-secondary">Gambar Utama</label>
-                <div class="border border-2 border-dashed rounded-4 p-4 text-center bg-light position-relative" id="dropzone">
-                    <img id="image-preview" src="" alt="Preview" class="img-fluid rounded-3 mb-3 d-none mx-auto" style="max-height: 180px; object-fit: cover;">
-                    <div id="upload-placeholder">
-                        <i class="fa-solid fa-cloud-arrow-up display-5 text-primary mb-2"></i>
-                        <p class="mb-1 text-dark fw-medium" id="upload-title-text">Klik atau tarik gambar ke sini</p>
-                        <span class="text-muted small">PNG, JPG, WEBP hingga 2MB</span>
-                    </div>
-                    <input type="file" name="gambar" id="gambar-input" accept="image/*" class="position-absolute top-0 start-0 w-100 h-100 opacity-0 cursor-pointer" required style="cursor: pointer;">
-                </div>
+                <label for="gambar" class="form-label fw-semibold text-secondary">Gambar Utama</label>
+                <input class="form-control @error('gambar') is-invalid @enderror" type="file" id="gambar" name="gambar">
+                
                 @error('gambar')
-                    <div class="text-danger small mt-1">{{ $message }}</div>
+                    <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 
