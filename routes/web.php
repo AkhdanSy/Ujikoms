@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\controllers\AuthController;
-use App\Http\controllers\DashboardController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PesanController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\RatingController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,6 +18,7 @@ Route::get('/berita', [HomeController::class, 'berita'])->name('pages.berita');
 Route::get('/berita/{id}', [HomeController::class, 'detailBerita'])->name('pages.detail-berita');
 Route::get('/galeri', [HomeController::class, 'galeri'])->name('pages.galeri');
 Route::get('/galeri/{id}', [HomeController::class, 'detailGaleri'])->name('pages.detail-galeri');
+Route::post('/rating', [RatingController::class, 'store'])->name('rating.store');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');

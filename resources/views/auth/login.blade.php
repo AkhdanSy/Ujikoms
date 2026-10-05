@@ -26,6 +26,11 @@
                         </div>
                         <!-- Kolom Kanan: Form Login -->
                         <div class="col-md-6 p-4 p-lg-5 d-flex flex-column justify-content-center bg-white">
+                            <div class="mb-3">
+                                <a href="{{ route('home') }}" class="text-decoration-none text-secondary d-inline-flex align-items-center gap-2 small link-primary fw-medium">
+                                    <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
+                                </a>
+                            </div>
                             <h2 class="fw-bold text-dark mb-4">Masuk ke Admin</h2>
                             <!-- Pesan Error Gagal Login -->
                             @if(session('error'))

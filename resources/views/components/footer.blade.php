@@ -13,11 +13,9 @@
                     SMKN 4 Bogor — tempat mimpi dimulai, keterampilan diasah, dan masa depan dibentuk.
                 </p>
                 <div class="d-flex gap-3">
-                    <a href="#" class="btn btn-sm btn-light text-primary rounded-circle" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="btn btn-sm btn-light text-primary rounded-circle" aria-label="Google"><i class="fa-brands fa-google"></i></a>
-                    <a href="#" class="btn btn-sm btn-light text-primary rounded-circle" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="btn btn-sm btn-light text-primary rounded-circle" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#" class="btn btn-sm btn-light text-primary rounded-circle" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/p/SMK-NEGERI-4-KOTA-BOGOR-100054636630766/?locale=id_ID" class="btn btn-sm btn-light text-primary rounded-circle" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/company/smkn-4-bogor/home/" class="btn btn-sm btn-light text-primary rounded-circle" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/smkn4kotabogor?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" class="btn btn-sm btn-light text-primary rounded-circle" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
 
@@ -30,7 +28,7 @@
                     <a href="{{ route('home') }}#siswa" class="text-decoration-none text-secondary link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Siswa</a>
                     <a href="{{ route('home') }}#berita" class="text-decoration-none text-secondary link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Berita</a>
                     <a href="{{ route('home') }}#galeri" class="text-decoration-none text-secondary link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Galeri</a>
-                    <a href="{{ route('home') }}#faq" class="text-decoration-none text-secondary link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">FAQ</a>
+                    <a href="{{ route('home') }}#faq" class="text-decoration-none text-secondary link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Kontak</a>
                 </div>
             </div>
 

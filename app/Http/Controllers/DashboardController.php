@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use App\Models\Rating;
 
 class DashboardController extends Controller
 {
@@ -12,7 +13,10 @@ class DashboardController extends Controller
         $totalBerita = Berita::count();
         $beritaTerbaru = Berita::latest()->take(5)->get();
 
-        return view('admin.dashboard', compact('totalBerita', 'beritaTerbaru'));
+        $averageRating = Rating::avg('bintang');
+        $ratingXaoLery = $averageRating ? number_format($averageRating, 1) : '0';
+
+        return view('admin.dashboard', compact('totalBerita', 'beritaTerbaru', 'ratingXaoLery'));
     }
 
     public function akun(){

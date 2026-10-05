@@ -17,34 +17,6 @@
         </div>
     </div>
 
-    <!-- Blue Stat Cards Grid -->
-    <div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
-        <div class="col">
-            <div class="card border-0 bg-primary bg-gradient text-white rounded-4 shadow-sm h-100 p-3">
-                <div class="card-body">
-                    <h6 class="text-white-50 fw-semibold text-uppercase mb-2">Jumlah guru</h6>
-                    <h2 class="display-5 fw-bold mb-0">50</h2>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card border-0 bg-primary bg-gradient text-white rounded-4 shadow-sm h-100 p-3">
-                <div class="card-body">
-                    <h6 class="text-white-50 fw-semibold text-uppercase mb-2">Jumlah siswa</h6>
-                    <h2 class="display-5 fw-bold mb-0">1160</h2>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card border-0 bg-primary bg-gradient text-white rounded-4 shadow-sm h-100 p-3">
-                <div class="card-body">
-                    <h6 class="text-white-50 fw-semibold text-uppercase mb-2">Jumlah kelas</h6>
-                    <h2 class="display-5 fw-bold mb-0">30</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- White Stat Cards Grid -->
     <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
         <div class="col">
@@ -58,8 +30,10 @@
         <div class="col">
             <div class="card border-primary bg-white rounded-4 shadow-sm h-100 p-3">
                 <div class="card-body">
-                    <h6 class="text-secondary fw-semibold text-uppercase mb-2">Jumlah kategori postingan</h6>
-                    <h2 class="display-5 fw-bold text-dark mb-0">5</h2>
+                    <h6 class="text-secondary fw-semibold text-uppercase mb-2">Rating XaoLery</h6>
+                    <h2 class="display-5 fw-bold text-dark mb-0">
+                        {{ $ratingXaoLery }} <span class="fs-4 text-warning"><i class="fa-solid fa-star"></i></span>
+                    </h2>
                 </div>
             </div>
         </div>

@@ -187,58 +187,50 @@
     <!-- Section FAQ -->
     <section id="faq" class="py-5">
         <div class="container py-lg-4">
-            <h2 class="fw-bold text-center mb-5">FAQ</h2>
+            <h2 class="fw-bold text-center mb-5">Kontak & Rating</h2>
             
-            <div class="row justify-content-center">
-                <div class="col-lg-8 pb-2">
-                    <div class="accordion shadow-sm rounded-4 overflow-hidden border-0" id="faqAccordion">
-                        <div class="accordion-item border-0 border-bottom">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                    Siapa yang dapat menggunakan website ini?
-                                </button>
-                            </h2>
-                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-secondary">
-                                    Website ini dirancang untuk digunakan oleh admin sekolah, guru, dan siswa sebagai media pengelolaan serta akses informasi sekolah.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item border-0 border-bottom">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                    Bagaimana cara mengakses informasi berita terbaru?
-                                </button>
-                            </h2>
-                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-secondary">
-                                    Pengunjung umum dapat melihat ringkasan berita di landing page ini atau mengklik tombol "Lihat Semua Berita".
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item border-0">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                    Apakah pengunjung biasa harus melakukan login?
-                                </button>
-                            </h2>
-                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-secondary">
-                                    Tidak, seluruh pengunjung publik dapat langsung mengakses informasi tanpa perlu login.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <!-- Banner Kontak -->
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="bg-primary text-white rounded-4 p-4 p-md-5 text-center shadow">
-                        <h3 class="fw-bold mb-3">Masih ada pertanyaan?</h3>
-                        <a href="#" class="btn btn-light text-primary rounded-pill px-4 py-2 fw-semibold">Hubungi Kami</a>
+                        <h3 class="fw-bold mb-3">Ada pertanyaan mengenai XaoLery?</h3>
+                        <a href="https://wa.me/6282310768523" class="btn btn-light text-primary rounded-pill px-4 py-2 fw-semibold">Hubungi Kami</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Kepuasan Pengguna -->
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-6 text-center">
+                    <span class="badge bg-light text-dark border px-4 py-2 rounded-pill fs-6 fw-normal mb-3 shadow-sm">
+                        Kepuasan pengguna
+                    </span>
+
+                    @if(session('rating_success'))
+                        <div class="alert alert-success alert-dismissible fade show rounded-4" role="alert">
+                            {{ session('rating_success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
+                    <div class="card border-primary border-opacity-50 rounded-4 p-4 shadow-sm bg-white">
+                        <form action="{{ route('rating.store') }}" method="POST">
+                        @csrf
+                        <div class="mb-3 text-start">
+                            <label for="bintang" class="form-label fw-semibold text-secondary">Beri Nilai XaoLery (1 - 5)</label>
+                            <select name="bintang" id="bintang" class="form-select form-select-lg rounded-3" required>
+                                <option value="" selected disabled>Pilih Rating</option>
+                                <option value="5">⭐⭐⭐⭐⭐ (5 - Sangat Puas)</option>
+                                <option value="4">⭐⭐⭐⭐ (4 - Puas)</option>
+                                <option value="3">⭐⭐⭐ (3 - Cukup)</option>
+                                <option value="2">⭐⭐ (2 - Kurang)</option>
+                                <option value="1">⭐ (1 - Sangat Kurang)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary rounded-3 px-4 py-2 fw-semibold w-100">Kirim Rating</button>
+                    </form>
                     </div>
                 </div>
             </div>

@@ -56,20 +56,10 @@
                         <option value="Kokulikuler" {{ old('kategori', $isLainnya ? 'Lainnya' : $berita->kategori) == 'Kokulikuler' ? 'selected' : '' }}>Kokulikuler</option>
                         <option value="Kegiatan" {{ old('kategori', $isLainnya ? 'Lainnya' : $berita->kategori) == 'Kegiatan' ? 'selected' : '' }}>Kegiatan</option>
                         <option value="Akademik" {{ old('kategori', $isLainnya ? 'Lainnya' : $berita->kategori) == 'Akademik' ? 'selected' : '' }}>Akademik</option>
-                        <option value="Lainnya" {{ old('kategori', $isLainnya ? 'Lainnya' : $berita->kategori) == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
                     </select>
                     @error('kategori')
                         <div class="invalid-feedback small mb-2">{{ $message }}</div>
                     @enderror
-
-                    <!-- Input Tambahan Kategori Lainnya -->
-                    <div id="wrapper-kategori-lainnya" style="display: {{ old('kategori', $isLainnya ? 'Lainnya' : '') == 'Lainnya' ? 'block' : 'none' }};">
-                        <label for="kategori_lainnya" class="form-label small text-secondary">Kategori Baru</label>
-                        <input type="text" name="kategori_lainnya" id="kategori_lainnya" class="form-control rounded-3 @error('kategori_lainnya') is-invalid @enderror" value="{{ old('kategori_lainnya', $isLainnya ? $berita->kategori : '') }}" placeholder="Masukkan nama kategori baru">
-                        @error('kategori_lainnya')
-                            <div class="invalid-feedback small">{{ $message }}</div>
-                        @enderror
-                    </div>
                 </div>
             </div>
 

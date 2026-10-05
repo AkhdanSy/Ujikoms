@@ -13,7 +13,7 @@
 
         <!-- Menu Navigasi -->
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav gap-lg-3 fw-medium position-absolute start-50 translate-middle-x">
+            <ul class="navbar-nav mx-auto gap-lg-3 fw-medium my-2 my-lg-0">
                 <li class="nav-item">
                     <a class="nav-link text-decoration-none text-dark link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{{ route('home') }}#beranda">Beranda</a>
                 </li>
@@ -30,9 +30,15 @@
                     <a class="nav-link text-decoration-none text-dark link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{{ route('home') }}#galeri">Galeri</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-decoration-none text-dark link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{{ route('home') }}#faq">FAQ</a>
+                    <a class="nav-link text-decoration-none text-dark link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{{ route('home') }}#faq">Kontak</a>
                 </li>
             </ul>
+
+            <div class="d-flex align-items-center">
+                <a href="{{ route('login') }}" class="btn text-primary rounded px-4 py-2 fw-semibold">
+                    Masuk
+                </a>
+            </div>
         </div>
     </div>
 </nav>
